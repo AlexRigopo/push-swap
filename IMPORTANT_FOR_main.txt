@@ -6,9 +6,8 @@ After commiting parser and sort for large
  if err != nil { fmt.Fprintln(os.Stderr, "Error"); os.Exit(1) }
  if helper.IsSorted(vals) { return }
 
- a := stack.New()
- b := stack.New()
- for _, v := range vals { a.Push(v) }
+ a := stack.New(vals)
+ b := stack.New([]int{})
 
  ops := large.Sort(a, b) // or small.Sort for <=5 elsewhere
 for _, op := range ops { if op != "" { fmt.Println(op) } }
